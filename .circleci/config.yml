@@ -2,10 +2,12 @@ version: 3.0
 jobs:
  build:
   docker:
-   - image: cimg/python:3.9.2
+   - image: boring_franklin
   steps:
    - checkout 
-   - run: python manage.py runserver 16.16.66.86:8001
+   - run:
+      name: install django 
+      - command: python manage.py runserver 16.16.66.86:8001
 
 workflow:
  build_now: 
