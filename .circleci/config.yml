@@ -2,11 +2,13 @@ version: 3.0
 jobs:
  build:
   docker:
-   - image: boring_franklin
+   - image: boring_franklin|python 
   steps:
    - checkout 
    - run:
       name: install django 
+      - command: pip install django 
+      - command: python manage.py migrate 
       - command: python manage.py runserver 16.16.66.86:8001
 
 workflow:
